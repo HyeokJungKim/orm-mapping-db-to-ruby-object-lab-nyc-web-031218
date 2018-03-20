@@ -23,10 +23,10 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
-    sqli = <<-SQL
+    sql = <<-SQL
     SELECT * FROM students WHERE name = ?
     SQL
-    arr = DB[:conn].execute(sqli, name).flatten
+    arr = DB[:conn].execute(sql, name).flatten
     Student.new_from_db(arr)
   end
 
